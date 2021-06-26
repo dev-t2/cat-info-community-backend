@@ -17,9 +17,9 @@ app.use((req, res, next) => {
 
 app.get('/coins', (req, res) => {
   const coins = [
-    { name: 'BitCoin', symbol: 'BTC', price_usd: '10000' },
-    { name: 'Ethereum', symbol: 'ETH', price_usd: '400' },
-    { name: 'LiteCoin', symbol: 'LTC', price_usd: '150' },
+    { name: 'BitCoin', symbol: 'BTC', price: 10000 },
+    { name: 'Ethereum', symbol: 'ETH', price: 400 },
+    { name: 'LiteCoin', symbol: 'LTC', price: 150 },
   ];
 
   res.json({ coins });
