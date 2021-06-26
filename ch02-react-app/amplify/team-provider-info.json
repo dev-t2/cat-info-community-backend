@@ -10,6 +10,14 @@
       "StackName": "amplify-ch02reactapp-dev-123246",
       "StackId": "arn:aws:cloudformation:ap-northeast-2:053584253943:stack/amplify-ch02reactapp-dev-123246/2e8531a0-d62f-11eb-8169-0a8fc78ad0c8",
       "AmplifyAppId": "d287atfj0cyg20"
+    },
+    "categories": {
+      "function": {
+        "cryptofunction": {
+          "deploymentBucketName": "amplify-ch02reactapp-dev-123246-deployment",
+          "s3Key": "amplify-builds/cryptofunction-7a456e636a5864683772-build.zip"
+        }
+      }
     }
   }
 }
