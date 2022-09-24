@@ -1,18 +1,26 @@
 import { Injectable } from '@nestjs/common';
 
-import { CreateCatDto } from './cats.dto';
+import { CreateCatDto, UpdateCatDto } from './cats.dto';
 
 @Injectable()
 export class CatsService {
   createCat(createCatDto: CreateCatDto) {
-    return createCatDto;
+    return { createCatDto };
   }
 
   findCats() {
-    return 'findAll';
+    return 'findCats';
   }
 
   findCat(id: string) {
-    return `findOne ${id}`;
+    return `findCat ${id}`;
+  }
+
+  updateCat(id: string, updateCatDto: UpdateCatDto) {
+    return { id, updateCatDto };
+  }
+
+  removeCat(id: string) {
+    return `removeCat ${id}`;
   }
 }
