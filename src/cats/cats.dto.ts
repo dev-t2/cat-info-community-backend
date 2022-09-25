@@ -1,3 +1,5 @@
-export class CreateCatDto {}
+import { PickType } from '@nestjs/swagger';
 
-export class UpdateCatDto {}
+import { Cat } from './cats.schema';
+
+export class SignUpDto extends PickType(Cat, ['email', 'nickname', 'password'] as const) {}

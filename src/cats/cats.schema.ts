@@ -2,8 +2,6 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
-export type CatDocument = Cat & Document;
-
 @Schema({ timestamps: true })
 export class Cat extends Document {
   @IsEmail()

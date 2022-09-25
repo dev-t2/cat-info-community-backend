@@ -1,9 +1,8 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module, NestModule } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import Joi from 'joi';
 
-import { LoggerMiddleware } from './common/middlewares/logger.middleware';
 import { CatsModule } from './cats/cats.module';
 import mongoose from 'mongoose';
 
@@ -35,9 +34,7 @@ import mongoose from 'mongoose';
 export class AppModule implements NestModule {
   constructor(private readonly configService: ConfigService) {}
 
-  configure(consumer: MiddlewareConsumer) {
+  configure() {
     mongoose.set('debug', this.configService.get('NODE_ENV') === 'development');
-
-    consumer.apply(LoggerMiddleware).forRoutes('*');
   }
 }
