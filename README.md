@@ -7,3 +7,4 @@
   - [Controllers](https://docs.nestjs.com/controllers)
   - [Providers](https://docs.nestjs.com/providers)
   - [Middleware](https://docs.nestjs.com/middleware)
+  - [Logger](https://docs.nestjs.com/techniques/logger)

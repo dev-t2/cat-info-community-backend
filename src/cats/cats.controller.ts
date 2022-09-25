@@ -3,7 +3,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { CatsService } from './cats.service';
 import { CreateCatDto, UpdateCatDto } from './cats.dto';
 
-@Controller('cats')
+@Controller('api/cats')
 export class CatsController {
   constructor(private readonly catsService: CatsService) {}
 
