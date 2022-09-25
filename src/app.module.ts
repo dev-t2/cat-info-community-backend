@@ -5,6 +5,7 @@ import Joi from 'joi';
 
 import { LoggerMiddleware } from './common/middlewares/logger.middleware';
 import { CatsModule } from './cats/cats.module';
+import mongoose from 'mongoose';
 
 @Module({
   imports: [
@@ -32,7 +33,11 @@ import { CatsModule } from './cats/cats.module';
   ],
 })
 export class AppModule implements NestModule {
+  constructor(private readonly configService: ConfigService) {}
+
   configure(consumer: MiddlewareConsumer) {
+    mongoose.set('debug', this.configService.get('NODE_ENV') === 'development');
+
     consumer.apply(LoggerMiddleware).forRoutes('*');
   }
 }
