@@ -13,4 +13,5 @@
   - [Request lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
   - [Mongo](https://docs.nestjs.com/techniques/mongodb)
   - [Configuration](https://docs.nestjs.com/techniques/configuration)
+  - [Pipes](https://docs.nestjs.com/pipes)
 - [Mongoose](https://mongoosejs.com)
