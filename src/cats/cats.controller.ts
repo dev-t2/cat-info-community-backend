@@ -9,6 +9,6 @@ export class CatsController {
 
   @Post('signup')
   async signUp(@Body() signUpDto: SignUpDto) {
-    return await this.catsService.signUp(signUpDto);
+    await this.catsService.signUp(signUpDto);
   }
 }
