@@ -8,3 +8,4 @@
   - [Providers](https://docs.nestjs.com/providers)
   - [Middleware](https://docs.nestjs.com/middleware)
   - [Logger](https://docs.nestjs.com/techniques/logger)
+  - [Exception filters](https://docs.nestjs.com/exception-filters)
