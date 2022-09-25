@@ -12,4 +12,5 @@
   - [Interceptors](https://docs.nestjs.com/interceptors)
   - [Request lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
   - [Mongo](https://docs.nestjs.com/techniques/mongodb)
+  - [Configuration](https://docs.nestjs.com/techniques/configuration)
 - [Mongoose](https://mongoosejs.com)
