@@ -9,3 +9,5 @@
   - [Middleware](https://docs.nestjs.com/middleware)
   - [Logger](https://docs.nestjs.com/techniques/logger)
   - [Exception filters](https://docs.nestjs.com/exception-filters)
+  - [Interceptors](https://docs.nestjs.com/interceptors)
+  - [Request lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
