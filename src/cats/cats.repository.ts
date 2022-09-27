@@ -20,4 +20,8 @@ export class CatsRepository {
   async signUp(signUpDto: SignUpDto) {
     return await this.catModel.create(signUpDto);
   }
+
+  async findCatByEmail(email: string) {
+    return await this.catModel.findOne({ email });
+  }
 }

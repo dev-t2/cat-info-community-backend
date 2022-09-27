@@ -1,10 +1,11 @@
 import { Module, NestModule } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import mongoose from 'mongoose';
 import Joi from 'joi';
 
 import { CatsModule } from './cats/cats.module';
-import mongoose from 'mongoose';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import mongoose from 'mongoose';
       inject: [ConfigService],
     }),
     CatsModule,
+    AuthModule,
   ],
 })
 export class AppModule implements NestModule {

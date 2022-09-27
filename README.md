@@ -16,6 +16,7 @@
     - [Mapped types](https://docs.nestjs.com/openapi/mapped-types)
   - [Encryption and Hashing](https://docs.nestjs.com/security/encryption-and-hashing)
   - [Authentication](https://docs.nestjs.com/security/authentication)
-  - [Guards](https://docs.nestjs.com/guards)
+  - [Circular dependency](https://docs.nestjs.com/fundamentals/circular-dependency)
   - [CORS](https://docs.nestjs.com/security/cors)
 - [Mongoose](https://mongoosejs.com)
+- [JWT](https://jwt.io)
