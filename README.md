@@ -15,5 +15,6 @@
   - [OpenAPI](https://docs.nestjs.com/openapi/introduction)
     - [Mapped types](https://docs.nestjs.com/openapi/mapped-types)
   - [Encryption and Hashing](https://docs.nestjs.com/security/encryption-and-hashing)
+  - [Guards](https://docs.nestjs.com/guards)
   - [CORS](https://docs.nestjs.com/security/cors)
 - [Mongoose](https://mongoosejs.com)
