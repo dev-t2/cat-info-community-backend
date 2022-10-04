@@ -1,12 +1,5 @@
-import { ApiProperty, OmitType, PickType } from '@nestjs/swagger';
+import { PickType } from '@nestjs/swagger';
 
-import { Cat } from './cats.schema';
-
-export class CatDto extends OmitType(Cat, ['password'] as const) {
-  @ApiProperty({ required: true, description: '아이디' })
-  id: string;
-}
+import { Cat } from './cats.entity';
 
 export class SignUpDto extends PickType(Cat, ['email', 'nickname', 'password'] as const) {}
-
-export class SignInDto extends PickType(Cat, ['email', 'password'] as const) {}

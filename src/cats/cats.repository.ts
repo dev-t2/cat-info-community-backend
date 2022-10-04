@@ -1,27 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
 
-import { Cat } from './cats.schema';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { SignUpDto } from './cats.dto';
 
 @Injectable()
 export class CatsRepository {
-  constructor(@InjectModel(Cat.name) private readonly catModel: Model<Cat>) {}
+  constructor(private readonly prismaService: PrismaService) {}
 
   async existsEmail(email: string) {
-    return await this.catModel.exists({ email });
+    return await this.prismaService.cat.findUnique({ where: { email } });
   }
 
   async existsNickname(nickname: string) {
-    return await this.catModel.exists({ nickname });
+    return await this.prismaService.cat.findUnique({ where: { nickname } });
   }
 
-  async signUp(signUpDto: SignUpDto) {
-    return await this.catModel.create(signUpDto);
-  }
-
-  async findCatByEmail(email: string) {
-    return await this.catModel.findOne({ email });
+  async signUp({ email, nickname, password }: SignUpDto) {
+    return await this.prismaService.cat.create({ data: { email, nickname, password } });
   }
 }
