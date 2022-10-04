@@ -16,6 +16,6 @@ export class CatsRepository {
   }
 
   async signUp({ email, nickname, password }: SignUpDto) {
-    return await this.prismaService.cat.create({ data: { email, nickname, password } });
+    await this.prismaService.cat.create({ data: { email, nickname, password } });
   }
 }

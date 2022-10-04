@@ -13,6 +13,7 @@
   - [CRUD generator](https://docs.nestjs.com/recipes/crud-generator)
   - [Pipes](https://docs.nestjs.com/pipes)
   - [OpenAPI](https://docs.nestjs.com/openapi/introduction)
+    - [Operations](https://docs.nestjs.com/openapi/operations)
     - [Mapped types](https://docs.nestjs.com/openapi/mapped-types)
 - [PostgreSQL](https://www.postgresql.org)
 - [Prisma](https://www.prisma.io)

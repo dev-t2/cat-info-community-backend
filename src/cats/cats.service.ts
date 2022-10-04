@@ -20,6 +20,6 @@ export class CatsService {
       throw new BadRequestException('이미 존재하는 닉네임입니다.');
     }
 
-    await this.catsRepository.signUp({ email, nickname, password });
+    return await this.catsRepository.signUp({ email, nickname, password });
   }
 }
