@@ -1,5 +1,4 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
-import bcrypt from 'bcrypt';
 
 import { CatsRepository } from './cats.repository';
 import { SignUpDto } from './cats.dto';
@@ -21,8 +20,6 @@ export class CatsService {
       throw new BadRequestException('이미 존재하는 닉네임입니다.');
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    await this.catsRepository.signUp({ email, nickname, password: hashedPassword });
+    await this.catsRepository.signUp({ email, nickname, password });
   }
 }
