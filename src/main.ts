@@ -11,24 +11,19 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalInterceptors(new TransformInterceptor());
-
   app.useGlobalPipes(new ValidationPipe());
-
   app.useGlobalFilters(new HttpExceptionFilter());
+
+  const prismaService = app.get(PrismaService);
+  await prismaService.enableShutdownHooks(app);
 
   const config = new DocumentBuilder()
     .setTitle('Cats App API')
     .setDescription('Cats App API Document')
     .setVersion('1.0')
     .build();
-
   const document = SwaggerModule.createDocument(app, config);
-
   SwaggerModule.setup('docs', app, document);
-
-  const prismaService = app.get(PrismaService);
-
-  await prismaService.enableShutdownHooks(app);
 
   await app.listen(3000);
 

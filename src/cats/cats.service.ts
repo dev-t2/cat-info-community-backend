@@ -8,16 +8,16 @@ export class CatsService {
   constructor(private readonly catsRepository: CatsRepository) {}
 
   async signUp({ email, nickname, password }: SignUpDto) {
-    const isExistsEmail = await this.catsRepository.existsEmail(email);
+    const isEmail = await this.catsRepository.findEmail(email);
 
-    if (isExistsEmail) {
-      throw new BadRequestException('이미 존재하는 이메일입니다.');
+    if (isEmail) {
+      throw new BadRequestException('이미 사용 중인 이메일입니다');
     }
 
-    const isExistsNickname = await this.catsRepository.existsNickname(nickname);
+    const isNickname = await this.catsRepository.findNickname(nickname);
 
-    if (isExistsNickname) {
-      throw new BadRequestException('이미 존재하는 닉네임입니다.');
+    if (isNickname) {
+      throw new BadRequestException('이미 사용 중인 닉네임입니다');
     }
 
     return await this.catsRepository.signUp({ email, nickname, password });
