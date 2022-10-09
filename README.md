@@ -17,6 +17,7 @@
     - [Operations](https://docs.nestjs.com/openapi/operations)
     - [Mapped types](https://docs.nestjs.com/openapi/mapped-types)
 - [ESLint](https://eslint.org)
+- [Prettier](https://prettier.io)
 - [PostgreSQL](https://www.postgresql.org)
 - [Prisma](https://www.prisma.io)
   - [Next-Generation & Fully Type-Safe ORM for NestJS](https://www.prisma.io/nestjs)
