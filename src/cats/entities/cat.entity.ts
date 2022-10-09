@@ -1,5 +1,5 @@
 import { Cat as CatModel } from '@prisma/client';
-import { IsAlphanumeric, IsDate, IsEmail, IsNotEmpty, IsPositive, IsString } from 'class-validator';
+import { IsDate, IsEmail, IsNotEmpty, IsPositive, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class Cat implements CatModel {
@@ -13,7 +13,7 @@ export class Cat implements CatModel {
   email: string;
 
   @ApiProperty({ required: true, description: '닉네임' })
-  @IsAlphanumeric()
+  @IsString()
   @IsNotEmpty()
   nickname: string;
 

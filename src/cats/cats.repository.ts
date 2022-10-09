@@ -1,31 +1,24 @@
 import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from 'src/prisma/prisma.service';
-import { SignUpDto } from './cats.dto';
+import { CreateCatDto } from './cats.dto';
 
 @Injectable()
 export class CatsRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async findEmail(email: string) {
+  async findCatByEmail(email: string) {
     return await this.prismaService.cat.findUnique({ where: { email }, select: { id: true } });
   }
 
-  async findNickname(nickname: string) {
+  async findCatByNickname(nickname: string) {
     return await this.prismaService.cat.findUnique({ where: { nickname }, select: { id: true } });
   }
 
-  async signUp({ email, nickname, password }: SignUpDto) {
+  async createCat({ email, nickname, password }: CreateCatDto) {
     return await this.prismaService.cat.create({
       data: { email, nickname, password },
-      select: {
-        id: true,
-        email: true,
-        nickname: true,
-        avatar: true,
-        createdAt: true,
-        updatedAt: true,
-      },
+      select: { id: true, email: true, nickname: true, createdAt: true },
     });
   }
 }
