@@ -12,7 +12,6 @@
   - [Interceptors](https://docs.nestjs.com/interceptors)
   - [Request lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
   - [Prisma](https://docs.nestjs.com/recipes/prisma)
-  - [CRUD generator](https://docs.nestjs.com/recipes/crud-generator)
   - [OpenAPI](https://docs.nestjs.com/openapi/introduction)
     - [Operations](https://docs.nestjs.com/openapi/operations)
     - [Mapped types](https://docs.nestjs.com/openapi/mapped-types)
