@@ -16,6 +16,7 @@
   - [OpenAPI](https://docs.nestjs.com/openapi/introduction)
     - [Operations](https://docs.nestjs.com/openapi/operations)
     - [Mapped types](https://docs.nestjs.com/openapi/mapped-types)
+- [Visual Studio Code](https://code.visualstudio.com)
 - [ESLint](https://eslint.org)
 - [Prettier](https://prettier.io)
 - [PostgreSQL](https://www.postgresql.org)
