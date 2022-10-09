@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { PrismaService } from 'src/common/prisma/prisma.service';
+import { PrismaService } from 'src/common/prisma.service';
 import { CatsController } from './cats.controller';
 import { CatsService } from './cats.service';
 import { CatsRepository } from './cats.repository';
