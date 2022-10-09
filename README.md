@@ -19,6 +19,7 @@
     - [Mapped types](https://docs.nestjs.com/openapi/mapped-types)
   - [Encryption and Hashing](https://docs.nestjs.com/security/encryption-and-hashing)
   - [CORS](https://docs.nestjs.com/security/cors)
+  - [Guards](https://docs.nestjs.com/guards)
 - [PostgreSQL](https://www.postgresql.org)
 - [Prisma](https://www.prisma.io)
   - [Configuring logging](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/logging)
