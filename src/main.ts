@@ -5,7 +5,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
-import { PrismaService } from './prisma/prisma.service';
+import { PrismaService } from './common/prisma/prisma.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -14,9 +14,6 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new HttpExceptionFilter());
 
-  const prismaService = app.get(PrismaService);
-  await prismaService.enableShutdownHooks(app);
-
   const config = new DocumentBuilder()
     .setTitle('Cats App API')
     .setDescription('Cats App API Document')
@@ -24,6 +21,9 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
+
+  const prismaService = app.get(PrismaService);
+  await prismaService.enableShutdownHooks(app);
 
   await app.listen(3000);
 
