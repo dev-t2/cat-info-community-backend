@@ -16,9 +16,9 @@ export class CatsRepository {
   }
 
   async createCat({ email, nickname, password }: CreateCatDto) {
-    return await this.prismaService.cat.create({
+    await this.prismaService.cat.create({
       data: { email, nickname, password },
-      select: { id: true, email: true, nickname: true, createdAt: true },
+      select: { id: true },
     });
   }
 }

@@ -14,16 +14,17 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new HttpExceptionFilter());
 
+  await app.get(PrismaService).enableShutdownHooks(app);
+
   const config = new DocumentBuilder()
     .setTitle('Cats App API')
     .setDescription('Cats App API Document')
-    .setVersion('1.0')
+    .setVersion('1.0.0')
     .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
 
-  const prismaService = app.get(PrismaService);
-  await prismaService.enableShutdownHooks(app);
+  SwaggerModule.setup('api', app, SwaggerModule.createDocument(app, config));
+
+  app.enableCors({ origin: true, credentials: true });
 
   await app.listen(3000);
 
