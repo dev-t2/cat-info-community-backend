@@ -11,9 +11,19 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const error = exception.getResponse();
 
     if (typeof error === 'string') {
-      return response.status(status).json({ url: request.url, error });
+      return response.status(status).json({
+        statusCode: status,
+        timestamp: new Date().toISOString(),
+        path: request.url,
+        error,
+      });
     }
 
-    return response.status(status).json({ url: request.url, ...error });
+    return response.status(status).json({
+      statusCode: status,
+      timestamp: new Date().toISOString(),
+      path: request.url,
+      ...error,
+    });
   }
 }
