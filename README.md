@@ -16,3 +16,4 @@
   - [OpenAPI](https://docs.nestjs.com/openapi/introduction)
 - [PostgreSQL](https://www.postgresql.org)
 - [Prisma](https://www.prisma.io)
+  - [Configuring logging](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/logging)
