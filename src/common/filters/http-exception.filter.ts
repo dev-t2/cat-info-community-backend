@@ -13,7 +13,6 @@ export class HttpExceptionFilter implements ExceptionFilter {
     if (typeof error === 'string') {
       return response.status(status).json({
         statusCode: status,
-        timestamp: new Date().toISOString(),
         path: request.url,
         error,
       });
@@ -21,7 +20,6 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
     return response.status(status).json({
       statusCode: status,
-      timestamp: new Date().toISOString(),
       path: request.url,
       ...error,
     });
