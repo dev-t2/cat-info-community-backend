@@ -19,6 +19,7 @@
 - [Visual Studio Code](https://code.visualstudio.com)
 - [ESLint](https://eslint.org)
 - [Prettier](https://prettier.io)
+- [RxJS](https://rxjs.dev)
 - [PostgreSQL](https://www.postgresql.org)
 - [Prisma](https://www.prisma.io)
   - [Next-Generation & Fully Type-Safe ORM for NestJS](https://www.prisma.io/nestjs)
