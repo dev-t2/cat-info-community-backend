@@ -7,6 +7,7 @@
   - [Providers](https://docs.nestjs.com/providers)
   - [Modules](https://docs.nestjs.com/modules)
   - [CLI command reference](https://docs.nestjs.com/cli/usages)
+  - [Middleware](https://docs.nestjs.com/middleware)
   - [Exception filters](https://docs.nestjs.com/exception-filters)
   - [Pipes](https://docs.nestjs.com/pipes)
   - [Interceptors](https://docs.nestjs.com/interceptors)
