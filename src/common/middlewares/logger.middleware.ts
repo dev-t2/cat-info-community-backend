@@ -9,7 +9,7 @@ export class LoggerMiddleware implements NestMiddleware {
     const startTime = Date.now();
 
     res.on('finish', () => {
-      const contentLength = res.getHeader('content-length');
+      const contentLength = res.getHeader('content-length') ?? 0;
 
       const responseTime = Date.now() - startTime;
 

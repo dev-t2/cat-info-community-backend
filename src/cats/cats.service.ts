@@ -2,13 +2,13 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import bcrypt from 'bcrypt';
 
 import { CatsRepository } from './cats.repository';
-import { CreateCatDto } from './cats.dto';
+import { SignUpDto } from './cats.dto';
 
 @Injectable()
 export class CatsService {
   constructor(private readonly catsRepository: CatsRepository) {}
 
-  async createCat({ email, nickname, password }: CreateCatDto) {
+  async signUp({ email, nickname, password }: SignUpDto) {
     const isEmail = await this.catsRepository.findCatByEmail(email);
 
     if (isEmail) {
@@ -23,6 +23,6 @@ export class CatsService {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    return await this.catsRepository.createCat({ email, nickname, password: hashedPassword });
+    return await this.catsRepository.signUp({ email, nickname, password: hashedPassword });
   }
 }
