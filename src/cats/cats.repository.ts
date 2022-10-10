@@ -15,7 +15,10 @@ export class CatsRepository {
   }
 
   async findCatByNickname(nickname: string) {
-    return await this.prismaService.cat.findUnique({ where: { nickname }, select: { id: true } });
+    return await this.prismaService.cat.findUnique({
+      where: { nickname },
+      select: { id: true },
+    });
   }
 
   async signUp({ email, nickname, password }: SignUpDto) {

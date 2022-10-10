@@ -1,11 +1,11 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
-import { AuthService } from 'src/auth/auth.service';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { CatsService } from './cats.service';
-import { User } from 'src/common/decorators/cat.decorator';
-import { FindCatDto, SignInDto, SignUpDto } from './cats.dto';
+import { AuthService } from 'src/auth/auth.service';
+import { CatDto, SignInDto, SignUpDto } from './cats.dto';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { Cat } from 'src/common/decorators/cat.decorator';
 
 @ApiTags('CAT')
 @Controller('cats')
@@ -30,7 +30,7 @@ export class CatsController {
   @ApiOperation({ summary: '프로필 정보' })
   @UseGuards(JwtAuthGuard)
   @Get()
-  async findCat(@User() findCat: FindCatDto) {
-    return findCat;
+  async findCat(@Cat() catDto: CatDto) {
+    return catDto;
   }
 }

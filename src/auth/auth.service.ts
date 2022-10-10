@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 
 import { CatsRepository } from 'src/cats/cats.repository';
 import { SignInDto } from 'src/cats/cats.dto';
-import { IPayload } from './strategies/jwt.interface';
+import { IPayload } from './auth.interface';
 
 @Injectable()
 export class AuthService {
@@ -26,7 +26,7 @@ export class AuthService {
       throw new UnauthorizedException('이메일과 비밀번호를 확인해 주세요');
     }
 
-    const payload: IPayload = { sub: cat.id, email: cat.email };
+    const payload: IPayload = { id: cat.id, email: cat.email };
 
     return { accessToken: this.jwtService.sign(payload) };
   }

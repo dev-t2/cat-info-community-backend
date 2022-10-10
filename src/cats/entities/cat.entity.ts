@@ -1,6 +1,6 @@
 import { Cat as CatModel } from '@prisma/client';
-import { IsDate, IsEmail, IsNotEmpty, IsPositive, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { IsDate, IsEmail, IsNotEmpty, IsPositive, IsString } from 'class-validator';
 
 export class Cat implements CatModel {
   @ApiProperty({ required: true, description: '아이디' })
