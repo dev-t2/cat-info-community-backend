@@ -20,6 +20,7 @@
   - [Encryption and Hashing](https://docs.nestjs.com/security/encryption-and-hashing)
   - [Authentication](https://docs.nestjs.com/security/authentication)
   - [Circular dependency](https://docs.nestjs.com/fundamentals/circular-dependency)
+  - [Guards](https://docs.nestjs.com/guards)
   - [Custom route decorators](https://docs.nestjs.com/custom-decorators)
   - [CORS](https://docs.nestjs.com/security/cors)
 - [PostgreSQL](https://www.postgresql.org)
