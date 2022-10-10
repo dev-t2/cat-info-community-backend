@@ -27,6 +27,13 @@ export class CatsController {
     return await this.authService.signIn(signInDto);
   }
 
+  @ApiOperation({ summary: '로그아웃' })
+  @UseGuards(JwtAuthGuard)
+  @Post('signout')
+  signOut() {
+    return this.catsService.signOut();
+  }
+
   @ApiOperation({ summary: '프로필 정보' })
   @UseGuards(JwtAuthGuard)
   @Get()

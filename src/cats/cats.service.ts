@@ -25,4 +25,8 @@ export class CatsService {
 
     return await this.catsRepository.signUp({ email, nickname, password: hashedPassword });
   }
+
+  signOut() {
+    return;
+  }
 }
