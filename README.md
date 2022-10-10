@@ -26,6 +26,6 @@
 - [PostgreSQL](https://www.postgresql.org)
 - [Prisma](https://www.prisma.io)
   - [Configuring logging](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/logging)
-- [express-basic-auth](https://github.com/LionC/express-basic-auth)
-- [RandomKeygen](https://randomkeygen.com)
+- [Express Basic Auth](https://github.com/LionC/express-basic-auth)
+- [Random Key Generator](https://randomkeygen.com)
 - [JSON Web Tokens](https://jwt.io)
