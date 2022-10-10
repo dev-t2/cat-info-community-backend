@@ -1,5 +1,14 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  UploadedFiles,
+  UseGuards,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { FilesInterceptor } from '@nestjs/platform-express';
 
 import { CatsService } from './cats.service';
 import { AuthService } from 'src/auth/auth.service';
@@ -39,5 +48,15 @@ export class CatsController {
   @Get()
   async findCat(@Cat() findCatDto: FindCatDto) {
     return findCatDto;
+  }
+
+  @ApiOperation({ summary: '아바타 업로드' })
+  @UseGuards(JwtAuthGuard)
+  @Post('upload')
+  @UseInterceptors(FilesInterceptor('files'))
+  async uploadFiles(@UploadedFiles() files: Array<Express.Multer.File>) {
+    console.log(files);
+
+    return this.catsService.uploadFiles();
   }
 }

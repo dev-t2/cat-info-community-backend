@@ -22,6 +22,7 @@
   - [Circular dependency](https://docs.nestjs.com/fundamentals/circular-dependency)
   - [Guards](https://docs.nestjs.com/guards)
   - [Custom route decorators](https://docs.nestjs.com/custom-decorators)
+  - [File upload](https://docs.nestjs.com/techniques/file-upload)
   - [CORS](https://docs.nestjs.com/security/cors)
 - [PostgreSQL](https://www.postgresql.org)
 - [Prisma](https://www.prisma.io)

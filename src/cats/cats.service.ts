@@ -29,4 +29,8 @@ export class CatsService {
   signOut() {
     return;
   }
+
+  async uploadFiles() {
+    return;
+  }
 }
