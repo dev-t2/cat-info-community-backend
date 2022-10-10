@@ -24,4 +24,18 @@ export class CatsRepository {
       select: { id: true },
     });
   }
+
+  async findCatById(id: number) {
+    return await this.prismaService.cat.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        email: true,
+        nickname: true,
+        avatar: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
+  }
 }
