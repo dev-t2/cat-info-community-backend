@@ -41,4 +41,8 @@ export class CatsRepository {
       },
     });
   }
+
+  async uploadAvatar(id: number, fileName: string) {
+    return await this.prismaService.cat.update({ where: { id }, data: { avatar: fileName } });
+  }
 }

@@ -6,4 +6,6 @@ export class SignUpDto extends PickType(Cat, ['email', 'nickname', 'password'] a
 
 export class SignInDto extends PickType(Cat, ['email', 'password'] as const) {}
 
-export class FindCatDto extends OmitType(Cat, ['password'] as const) {}
+export class CatDto extends OmitType(Cat, ['password'] as const) {}
+
+export class FilesDto extends Array<Express.Multer.File> {}

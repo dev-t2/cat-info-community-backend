@@ -2,7 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import bcrypt from 'bcrypt';
 
 import { CatsRepository } from './cats.repository';
-import { SignUpDto } from './cats.dto';
+import { CatDto, FilesDto, SignUpDto } from './cats.dto';
 
 @Injectable()
 export class CatsService {
@@ -30,7 +30,9 @@ export class CatsService {
     return;
   }
 
-  async uploadFiles() {
-    return;
+  async uploadAvatar({ id }: CatDto, filesDto: FilesDto) {
+    const fileName = filesDto[0].filename;
+
+    return await this.catsRepository.uploadAvatar(id, fileName);
   }
 }

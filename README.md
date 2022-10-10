@@ -30,3 +30,4 @@
 - [Express Basic Auth](https://github.com/LionC/express-basic-auth)
 - [Random Key Generator](https://randomkeygen.com)
 - [JSON Web Tokens](https://jwt.io)
+- [Multer](https://github.com/expressjs/multer)

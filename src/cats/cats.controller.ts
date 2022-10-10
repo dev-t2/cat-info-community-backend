@@ -12,7 +12,7 @@ import { FilesInterceptor } from '@nestjs/platform-express';
 
 import { CatsService } from './cats.service';
 import { AuthService } from 'src/auth/auth.service';
-import { FindCatDto, SignInDto, SignUpDto } from './cats.dto';
+import { CatDto, FilesDto, SignInDto, SignUpDto } from './cats.dto';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { Cat } from 'src/common/decorators/cat.decorator';
 
@@ -46,17 +46,15 @@ export class CatsController {
   @ApiOperation({ summary: '프로필 정보' })
   @UseGuards(JwtAuthGuard)
   @Get()
-  async findCat(@Cat() findCatDto: FindCatDto) {
-    return findCatDto;
+  async findCat(@Cat() catDto: CatDto) {
+    return catDto;
   }
 
   @ApiOperation({ summary: '아바타 업로드' })
   @UseGuards(JwtAuthGuard)
-  @Post('upload')
-  @UseInterceptors(FilesInterceptor('files'))
-  async uploadFiles(@UploadedFiles() files: Array<Express.Multer.File>) {
-    console.log(files);
-
-    return this.catsService.uploadFiles();
+  @Post('avatar')
+  @UseInterceptors(FilesInterceptor('avatar', 1))
+  async uploadAvatar(@Cat() catDto: CatDto, @UploadedFiles() filesDto: FilesDto) {
+    return await this.catsService.uploadAvatar(catDto, filesDto);
   }
 }
