@@ -6,23 +6,11 @@ import { CommentsRepository } from './comments.repository';
 export class CommentsService {
   constructor(private readonly commentsRepository: CommentsRepository) {}
 
-  create() {
-    return 'This action adds a new comment';
+  async createComment(id: number) {
+    return await this.commentsRepository.createComment(id);
   }
 
-  findAll() {
-    return `This action returns all comments`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} comment`;
-  }
-
-  update(id: number) {
-    return `This action updates a #${id} comment`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} comment`;
+  async findComments() {
+    return await this.commentsRepository.findComments();
   }
 }

@@ -23,7 +23,7 @@ export class CatsService {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    return await this.catsRepository.signUp({ email, nickname, password: hashedPassword });
+    return await this.catsRepository.signUp(email, nickname, hashedPassword);
   }
 
   async profile({ id }: CatDto) {

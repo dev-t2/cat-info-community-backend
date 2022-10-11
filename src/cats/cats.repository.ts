@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from 'src/prisma/prisma.service';
-import { SignUpDto } from './cats.dto';
 
 @Injectable()
 export class CatsRepository {
@@ -21,7 +20,7 @@ export class CatsRepository {
     });
   }
 
-  async signUp({ email, nickname, password }: SignUpDto) {
+  async signUp(email: string, nickname: string, password: string) {
     await this.prismaService.cat.create({
       data: { email, nickname, password },
       select: { id: true },
