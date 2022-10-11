@@ -26,13 +26,13 @@ export class CatsService {
     return await this.catsRepository.signUp({ email, nickname, password: hashedPassword });
   }
 
-  signOut() {
-    return;
-  }
-
   async uploadAvatar({ id }: CatDto, filesDto: FilesDto) {
     const fileName = filesDto[0].filename;
 
     return await this.catsRepository.uploadAvatar(id, fileName);
+  }
+
+  async findCats(id: number) {
+    return await this.catsRepository.findCats(id);
   }
 }

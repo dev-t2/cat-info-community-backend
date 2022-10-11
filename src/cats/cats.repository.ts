@@ -49,4 +49,18 @@ export class CatsRepository {
       select: { avatar: true },
     });
   }
+
+  async findCats(id: number) {
+    return await this.prismaService.cat.findMany({
+      where: { id: { not: id } },
+      select: {
+        id: true,
+        email: true,
+        nickname: true,
+        avatar: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
+  }
 }
