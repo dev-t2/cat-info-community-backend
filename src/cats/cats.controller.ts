@@ -43,6 +43,13 @@ export class CatsController {
     return;
   }
 
+  @ApiOperation({ summary: '프로필' })
+  @UseGuards(JwtAuthGuard)
+  @Get('profile')
+  async profile(@Cat() catDto: CatDto) {
+    return await this.catsService.profile(catDto);
+  }
+
   @ApiOperation({ summary: '아바타 업로드' })
   @UseGuards(JwtAuthGuard)
   @Post('avatar')
@@ -54,7 +61,7 @@ export class CatsController {
   @ApiOperation({ summary: '고양이 리스트' })
   @UseGuards(JwtAuthGuard)
   @Get()
-  async findCats(@Cat() { id }: CatDto) {
-    return await this.catsService.findCats(id);
+  async findCats(@Cat() catDto: CatDto) {
+    return await this.catsService.findCats(catDto);
   }
 }
