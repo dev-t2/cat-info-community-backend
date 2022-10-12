@@ -19,17 +19,19 @@ model Cat {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  comments Comment[]
+  cats    Comment[] @relation("CatRelation")
+  authors Comment[] @relation("AuthorRelation")
 }
 
 model Comment {
   id        Int      @id @default(autoincrement())
-  authorId  Int
   catId     Int
+  authorId  Int
   content   String
-  likes     Int      @default(0)
+  likes     Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  cat Cat @relation(fields: [catId], references: [id], onDelete: Cascade)
+  cat    Cat @relation("CatRelation", fields: [catId], references: [id], onDelete: Cascade)
+  author Cat @relation("AuthorRelation", fields: [authorId], references: [id], onDelete: Cascade)
 }
