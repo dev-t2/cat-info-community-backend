@@ -6,13 +6,18 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class CommentsRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async createComment(id: number) {
-    console.log(id);
-
-    return;
+  async createComment(catId: number, authorId: number, content: string) {
+    return await this.prismaService.comment.create({ data: { catId, authorId, content } });
   }
 
   async findComments() {
     return;
+  }
+
+  async increaseLikes(id: number) {
+    return await this.prismaService.comment.update({
+      where: { id },
+      data: { likes: { increment: 1 } },
+    });
   }
 }
