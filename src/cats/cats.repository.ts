@@ -73,6 +73,32 @@ export class CatsRepository {
         avatar: true,
         createdAt: true,
         updatedAt: true,
+        cats: {
+          select: {
+            author: {
+              select: {
+                id: true,
+                email: true,
+                nickname: true,
+                avatar: true,
+              },
+            },
+            content: true,
+          },
+        },
+        authors: {
+          select: {
+            cat: {
+              select: {
+                id: true,
+                email: true,
+                nickname: true,
+                avatar: true,
+              },
+            },
+            content: true,
+          },
+        },
       },
     });
   }

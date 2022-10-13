@@ -19,7 +19,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const cat = await this.catsRepository.findCatById(id);
 
     if (!cat || cat.email !== email) {
-      throw new UnauthorizedException('인증 정보를 확인해 주세요');
+      throw new UnauthorizedException();
     }
 
     return cat;

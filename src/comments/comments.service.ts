@@ -14,7 +14,7 @@ export class CommentsService {
     const isCat = await this.catsRepository.findCatById(catId);
 
     if (!isCat) {
-      throw new BadRequestException('고양이 정보를 확인해 주세요');
+      throw new BadRequestException();
     }
 
     return await this.commentsRepository.createComment(catId, authorId, content);
@@ -28,7 +28,7 @@ export class CommentsService {
     const isComment = await this.commentsRepository.findCommentById(commentId);
 
     if (!isComment) {
-      throw new BadRequestException('댓글 정보를 확인해 주세요');
+      throw new BadRequestException();
     }
 
     const isLike = await this.commentsRepository.findLike(commentId, catId);
