@@ -16,6 +16,12 @@ export class CommentsRepository {
     return await this.prismaService.comment.findMany();
   }
 
+  async findCommentById(id: number) {
+    return await this.prismaService.comment.findUnique({
+      where: { id },
+    });
+  }
+
   async findLike(commentId: number, catId: number) {
     return await this.prismaService.like.findUnique({
       where: { commentId_catId: { commentId, catId } },
