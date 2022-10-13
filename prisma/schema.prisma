@@ -21,6 +21,7 @@ model Cat {
 
   cats    Comment[] @relation("CatRelation")
   authors Comment[] @relation("AuthorRelation")
+  likes   Like[]
 }
 
 model Comment {
@@ -28,10 +29,24 @@ model Comment {
   catId     Int
   authorId  Int
   content   String
-  likes     Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  likes Like[]
+
   cat    Cat @relation("CatRelation", fields: [catId], references: [id], onDelete: Cascade)
   author Cat @relation("AuthorRelation", fields: [authorId], references: [id], onDelete: Cascade)
+}
+
+model Like {
+  id        Int      @id @default(autoincrement())
+  commentId Int
+  catId     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  comment Comment @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  cat     Cat     @relation(fields: [catId], references: [id], onDelete: Cascade)
+
+  @@unique([commentId, catId])
 }
