@@ -14,10 +14,7 @@ export class CommentsRepository {
     return;
   }
 
-  async increaseLikes(id: number) {
-    return await this.prismaService.comment.update({
-      where: { id },
-      data: { likes: { increment: 1 } },
-    });
+  async likeComment(commentId: number, catId: number) {
+    return await this.prismaService.like.create({ data: { commentId, catId } });
   }
 }
