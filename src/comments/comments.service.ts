@@ -1,17 +1,16 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 
-import { CommentsRepository } from './comments.repository';
 import { CatsRepository } from 'src/cats/cats.repository';
-import { CreateCommentDto } from './comments.dto';
+import { CommentsRepository } from './comments.repository';
 
 @Injectable()
 export class CommentsService {
   constructor(
-    private readonly commentsRepository: CommentsRepository,
     private readonly catsRepository: CatsRepository,
+    private readonly commentsRepository: CommentsRepository,
   ) {}
 
-  async createComment(catId: number, authorId: number, { content }: CreateCommentDto) {
+  async createComment(catId: number, authorId: number, content: string) {
     const isCat = await this.catsRepository.findCatById(catId);
 
     if (!isCat) {
