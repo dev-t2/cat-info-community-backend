@@ -16,11 +16,11 @@ export class CommentsController {
   @UseGuards(JwtAuthGuard)
   @Post(':catId')
   async createComment(
-    @Cat() catDto: CatDto,
+    @Cat() { id }: CatDto,
     @Param('catId', ParsePositiveIntPipe) catId: number,
     @Body() createCommentDto: CreateCommentDto,
   ) {
-    return await this.commentsService.createComment(catId, catDto, createCommentDto);
+    return await this.commentsService.createComment(catId, id, createCommentDto);
   }
 
   @ApiOperation({ summary: '댓글 리스트' })
@@ -32,8 +32,11 @@ export class CommentsController {
 
   @ApiOperation({ summary: '좋아요' })
   @UseGuards(JwtAuthGuard)
-  @Post(':id/likes')
-  async increaseLikes(@Param('id', ParsePositiveIntPipe) id: number) {
-    return await this.commentsService.increaseLikes(id);
+  @Post(':commentId/likes')
+  async increaseLikes(
+    @Cat() { id }: CatDto,
+    @Param('commentId', ParsePositiveIntPipe) commentId: number,
+  ) {
+    return await this.commentsService.like(commentId, id);
   }
 }
