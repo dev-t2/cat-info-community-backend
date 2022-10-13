@@ -13,7 +13,7 @@ export class CommentsRepository {
   }
 
   async findComments() {
-    return;
+    return await this.prismaService.comment.findMany();
   }
 
   async findLike(commentId: number, catId: number) {
