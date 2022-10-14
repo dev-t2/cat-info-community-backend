@@ -75,28 +75,18 @@ export class CatsRepository {
         updatedAt: true,
         cats: {
           select: {
-            author: {
-              select: {
-                id: true,
-                email: true,
-                nickname: true,
-                avatar: true,
-              },
-            },
+            id: true,
+            author: { select: { id: true, email: true, nickname: true, avatar: true } },
             content: true,
+            _count: { select: { likes: true } },
           },
         },
         authors: {
           select: {
-            cat: {
-              select: {
-                id: true,
-                email: true,
-                nickname: true,
-                avatar: true,
-              },
-            },
+            id: true,
+            cat: { select: { id: true, email: true, nickname: true, avatar: true } },
             content: true,
+            _count: { select: { likes: true } },
           },
         },
       },

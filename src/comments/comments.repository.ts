@@ -13,7 +13,17 @@ export class CommentsRepository {
   }
 
   async findComments() {
-    return await this.prismaService.comment.findMany();
+    return await this.prismaService.comment.findMany({
+      select: {
+        id: true,
+        cat: { select: { id: true, email: true, nickname: true, avatar: true } },
+        author: { select: { id: true, email: true, nickname: true, avatar: true } },
+        content: true,
+        _count: { select: { likes: true } },
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
   }
 
   async findCommentById(id: number) {
