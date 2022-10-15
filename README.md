@@ -35,3 +35,4 @@
 - [Multer](https://github.com/expressjs/multer)
 - [AWS](https://aws.amazon.com/ko/free)
   - [S3](https://aws.amazon.com/ko/s3)
+    - [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html)
