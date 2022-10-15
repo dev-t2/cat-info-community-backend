@@ -26,6 +26,10 @@ export class CatsService {
     return await this.catsRepository.signUp(email, nickname, hashedPassword);
   }
 
+  async findCats({ id }: CatDto) {
+    return await this.catsRepository.findCats(id);
+  }
+
   async profile({ id }: CatDto) {
     return await this.catsRepository.findCat(id);
   }
@@ -34,9 +38,5 @@ export class CatsService {
     const fileName = filesDto[0].filename;
 
     return await this.catsRepository.uploadAvatar(id, fileName);
-  }
-
-  async findCats({ id }: CatDto) {
-    return await this.catsRepository.findCats(id);
   }
 }
