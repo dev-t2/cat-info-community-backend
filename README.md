@@ -38,3 +38,4 @@
     - [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html)
 - [AWS SDK for JavaScript](https://github.com/aws/aws-sdk-js)
 - [PM2](https://github.com/Unitech/pm2)
+- [Cross Env](https://github.com/kentcdodds/cross-env)
