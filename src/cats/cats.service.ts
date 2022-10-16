@@ -2,11 +2,15 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import bcrypt from 'bcrypt';
 
 import { CatsRepository } from './cats.repository';
+import { AwsService } from 'src/aws/aws.service';
 import { CatDto, FilesDto, SignUpDto } from './cats.dto';
 
 @Injectable()
 export class CatsService {
-  constructor(private readonly catsRepository: CatsRepository) {}
+  constructor(
+    private readonly catsRepository: CatsRepository,
+    private readonly awsService: AwsService,
+  ) {}
 
   async signUp({ email, nickname, password }: SignUpDto) {
     const isEmail = await this.catsRepository.findCatByEmail(email);
@@ -34,9 +38,15 @@ export class CatsService {
     return await this.catsRepository.findCat(id);
   }
 
-  async uploadAvatar({ id }: CatDto, filesDto: FilesDto) {
-    const fileName = filesDto[0].filename;
+  async updateAvatar({ id }: CatDto, filesDto: FilesDto) {
+    if (filesDto.length === 0) {
+      await this.awsService.deleteAvatar(id);
 
-    return await this.catsRepository.uploadAvatar(id, fileName);
+      return await this.catsRepository.updateAvatar(id, '');
+    }
+
+    const url = await this.awsService.updateAvatar(id, filesDto[0]);
+
+    return await this.catsRepository.updateAvatar(id, url);
   }
 }

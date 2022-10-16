@@ -9,7 +9,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 @Module({
   imports: [
     PassportModule,
-    JwtModule.register({ secret: process.env.SECRET_KEY, signOptions: { expiresIn: '10m' } }),
+    JwtModule.register({ secret: process.env.JWT_SECRET_KEY, signOptions: { expiresIn: '30m' } }),
     forwardRef(() => CatsModule),
   ],
   providers: [AuthService, JwtStrategy],

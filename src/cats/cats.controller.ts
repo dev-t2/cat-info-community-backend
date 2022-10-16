@@ -62,6 +62,6 @@ export class CatsController {
   @Post('avatar')
   @UseInterceptors(FilesInterceptor('avatar', 1))
   async uploadAvatar(@Cat() catDto: CatDto, @UploadedFiles() filesDto: FilesDto) {
-    return await this.catsService.uploadAvatar(catDto, filesDto);
+    return await this.catsService.updateAvatar(catDto, filesDto);
   }
 }
